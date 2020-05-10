@@ -96,6 +96,8 @@ gradle-app.setting
 # CMake
 cmake-build-*/
 
+.idea
+*.iml
 # Mongo Explorer plugin
 .idea/**/mongoSettings.xml
 
