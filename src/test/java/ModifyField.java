@@ -53,7 +53,7 @@ public class ModifyField {
         NodeList root = doc.getChildNodes();
 
         // Navigate down the hierarchy to get to the CEO node
-        readUtils.getNode("employees", root);
+        Node comp = readUtils.getNode("employees", root);
         NodeList employeeList = doc.getElementsByTagName("employee");
 
         for (int i = 0; i < employeeList.getLength(); i++) {
@@ -74,6 +74,17 @@ public class ModifyField {
                 addressAdder.addNode("town","chennai",addr);
                 addressAdder.addNode("state" ,"tamilnadu", addr);
                 employee.appendChild(addr);
+
+                Element em = doc.createElement("employee");
+
+                em.setAttribute("id", "PEER-004");
+
+                addressAdder.addNode("dob", "1994", em);
+                addressAdder.addNode("name", "varadha", em);
+                addressAdder.addNode("office", "publicis", em);
+
+                comp.appendChild(em);
+
                 printer.writeToOutputStream(doc);
 
             }
@@ -101,6 +112,11 @@ public class ModifyField {
 
         assertTrue(afterUpdate.contains("address")&& afterUpdate.contains("doorNo") && afterUpdate.contains("23") &&
                     afterUpdate.contains("town") && afterUpdate.contains("chennai") && afterUpdate.contains("state") && afterUpdate.contains("tamilnadu"));
+
+        assertFalse(beforeUpdate.contains("PEER-004")&& beforeUpdate.contains("dob") && beforeUpdate.contains("1994")
+                && beforeUpdate.contains("office") && beforeUpdate.contains("publicis"));
+        assertTrue(afterUpdate.contains("PEER-004") && afterUpdate.contains("dob") && afterUpdate.contains("1994")
+        && afterUpdate.contains("office") && afterUpdate.contains("publicis"));
 
 
     }
