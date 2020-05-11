@@ -19,7 +19,7 @@ please find google drive link  https://drive.google.com/open?id=1eCVFK4_Knr2Mke
 
 
 
-**Please find the test coverage screenshot attached ( around 65% of lines)**
+**Please find the test coverage screenshot attached**
 
 path -> reports/test_coverage.png 
 
